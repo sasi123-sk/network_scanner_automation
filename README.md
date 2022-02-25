@@ -35,4 +35,4 @@ vuln
 https://www.demo.com/
 ```
 
-# This tool will automate the nmap,waf detection,gobuster,nmap debuging and nmap network vulnerable scanner
+# This tool will automate the nmap,waf detection,directory scan,nmap debuging, nmap network vulnerable scanner and nikto web application vulnerability scanner
