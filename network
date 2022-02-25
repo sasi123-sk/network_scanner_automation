@@ -1,0 +1,58 @@
+#!/usr/bin/bash
+
+echo "[*]=============================================[*]"
+echo "[*]                                             [*]"
+echo "[*]         Welcome to Network Lab              [*]"
+echo "[*]                                             [*]"
+echo "[*]           tool is created  by               [*]"
+echo "[*]                   0xwhitedevil              [*]"
+echo "[*]                                             [*]"
+echo "[*]   https://www.instagram.com/0xwhitedevil/   [*]"
+echo "[*]=============================================[*]"
+echo "                                                                  "
+echo "-->> ip of the target :" ; read ip
+echo "-->> port to scan the target :" ; read port
+echo "-->> script to scan nmap :" ; read script
+echo "-->> You need to Debug ex: -d :" ; read debug
+echo "-->> URL of the target :" ; read url
+echo "                                                                  "
+echo  "--------------------------------------------------"
+echo  "[*]               nmap scanning                [*]"
+echo  "--------------------------------------------------"
+echo "                                                                  "
+echo "-->> nmap $ip $port  -vv -A --script=$script" 
+echo "                                                                  "
+nmap $ip $port  -vv -A --script=$script
+echo "                                                                  "
+echo  "--------------------------------------------------"
+echo  "[*]              nikito scan                   [*]"
+echo  "--------------------------------------------------"
+echo "                                                                  "
+echo "-->> nikto -h $url -C all"
+echo "                                                                  "
+nikto -h $url -C all
+echo "                                                                  "
+echo  "--------------------------------------------------"
+echo  "[*]              wafw00f scan                  [*]"
+echo  "--------------------------------------------------"
+echo "                                                                  "
+echo "-->> wafw00f $url -a -v"
+echo "                                                                  "
+wafw00f $url -a -v
+echo "                                                                  "
+echo  "--------------------------------------------------"
+echo  "[*]              directory scan                [*]"
+echo  "--------------------------------------------------"
+echo "                                                                  "
+echo "-->> gobuster dir -u $url -w /usr/share/dirb/wordlists/common.txt --wildcard switch"
+echo "                                                                  "
+gobuster dir -u $url -w /usr/share/dirb/wordlists/common.txt --wildcard switch
+echo "                                                                  "
+echo  "--------------------------------------------------"
+echo  "[*]               nmap debug scanning          [*]"
+echo  "--------------------------------------------------"
+echo "                                                                  "
+echo "-->> nmap  $ip $port  -vv -A --script=$script $debug" 
+echo "                                                                  "
+nmap  $ip $port  -vv -A --script=$script $debug
+echo "                                                                  "
